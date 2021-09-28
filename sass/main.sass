@@ -1,0 +1,2110 @@
+@import vars
+@import fonts
+@import libs
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: 'Open Sans', sans-serif
+	overflow-x: hidden
+	color: $text
+	&.onScroll
+		.header
+			background: rgba(245, 245, 247, 0.5)
+			backdrop-filter: blur(35px)
+			padding: 7px 0
+			.header-logo
+				border-color: #333333
+				svg
+					path
+						fill: #333333
+			.header-lang:before
+				background-color: #333
+			.header-menu li a,
+			.header-lang a
+				color: #333333
+			.header-btn
+				background: rgba(51, 51, 51, 0.05)
+				border: 1px solid rgba(51, 51, 51, 0.05)
+				.menu-btn span
+					background-color: #333
+	&.menuOpen
+		overflow: hidden
+		nav.nav
+			opacity: 1
+			z-index: 9999
+		.nav-wrapper .nav-col ul li
+			transform: translate3d(0,0,.00005px) scale(1) rotate(.00001deg)
+			opacity: 1
+		.nav-wrapper .nav-col .contacts-item
+			transform: translate3d(0,0,.00005px) scale(1) rotate(.00001deg)
+			opacity: 1
+	&.quizOpen
+		overflow: hidden
+		.quiz
+			transform: translateX(0)
+			z-index: 9999
+			overflow: visible
+			.quiz-bg
+				opacity: 0.4
+h1,.h1
+	font-family: 'Effra', sans-serif
+	font-weight: bold
+	font-size: 72px
+	line-height: 130%
+	background: linear-gradient(95.61deg, #BDC2F2 16.98%, #C167E0 50.31%, #EEA6DA 83.65%)
+	-webkit-background-clip: text
+	-webkit-text-fill-color: transparent
+	margin-bottom: 73px
+.mobi
+	display: none!important
+ul
+	padding: 0
+	margin: 0
+	list-style-type: none
+.header
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	padding: 28px 0
+	transition: all .3s ease
+	z-index: 999
+	animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards
+	opacity: 0
+	transform: translateY(-4rem)
+@keyframes fade-slide-down
+	0%
+		opacity: 0
+		transform: translateY(-4rem)
+
+	100%
+		opacity: 1
+		transform: none
+
+nav.nav
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: -1
+	background: linear-gradient(287.57deg, rgba(14, 18, 47, 0.7) 0%, rgba(38, 45, 112, 0.7) 100%)
+	border: 1px solid rgba(255, 255, 255, 0.1)
+	box-sizing: border-box
+	backdrop-filter: blur(180px)
+	display: flex
+	align-items: center
+	justify-content: center
+	opacity: 0
+	transition: all .5555s cubic-bezier(0, 0.5, 0, 1)
+	.section-wrapper
+		height: 100%
+		display: flex
+		align-items: center
+		justify-content: center
+.nav-wrapper
+	display: flex
+	justify-content: center
+	align-items: center
+	.nav-col
+		margin: 0 50px
+		ul
+			li
+				transform-origin: right center
+				will-change: transform,opacity
+				opacity: 0
+				&:nth-child(1)
+					transition: opacity .5s cubic-bezier(0, 0.5, 0, 1) 50ms,transform .65s cubic-bezier(.23,1,.32,1) 50ms
+					transform: translate3d(0,-.2rem,.00005px) scale(1.222222222) rotate(.00001deg)
+				&:nth-child(2)
+					transition: opacity .5s cubic-bezier(0, 0.5, 0, 1) 100ms,transform .65s cubic-bezier(.23,1,.32,1) 100ms
+					transform: translate3d(0,-.4rem,.00005px) scale(1.222222222) rotate(.00001deg)
+				&:nth-child(3)
+					transition: opacity .5s cubic-bezier(0, 0.5, 0, 1) 150ms,transform .65s cubic-bezier(.23,1,.32,1) 150ms
+					transform: translate3d(0,-.6rem,.00005px) scale(1.222222222) rotate(.00001deg)
+				&:nth-child(4)
+					transition: opacity .5s cubic-bezier(0, 0.5, 0, 1) 200ms,transform .65s cubic-bezier(.23,1,.32,1) 200ms
+					transform: translate3d(0,-.8rem,.00005px) scale(1.222222222) rotate(.00001deg)
+				&:nth-child(5)
+					transition: opacity .5s cubic-bezier(0, 0.5, 0, 1) 250ms,transform .65s cubic-bezier(.23,1,.32,1) 250ms
+					transform: translate3d(0,-1rem,.00005px) scale(1.222222222) rotate(.00001deg)
+				a
+					font-weight: bold
+					font-size: 42px
+					line-height: 200%
+					text-align: right
+					color: #FFFFFF
+					position: relative
+					display: block
+					background: linear-gradient(95.61deg, #BDC2F2 16.98%, #C167E0 50.31%, #EEA6DA 50%, #fff 50%)
+					background-clip: text
+					-webkit-background-clip: text
+					-webkit-text-fill-color: transparent
+					background-size: 200% 100%
+					background-position: 100%
+					transition: background-position 275ms ease
+					overflow: hidden
+					&:hover
+						background-position: 0 100%
+		.contacts-item
+			transform-origin: left center
+			will-change: transform,opacity
+			opacity: 0
+			&:nth-child(1)
+				transition: opacity .5s cubic-bezier(0, 0.5, 0, 1) 50ms,transform .65s cubic-bezier(.23,1,.32,1) 50ms
+				transform: translate3d(0,-.2rem,.00005px) scale(1.222222222) rotate(.00001deg)
+			&:nth-child(2)
+				transition: opacity .5s cubic-bezier(0, 0.5, 0, 1) 100ms,transform .65s cubic-bezier(.23,1,.32,1) 100ms
+				transform: translate3d(0,-.4rem,.00005px) scale(1.222222222) rotate(.00001deg)
+			&:nth-child(3)
+				transition: opacity .5s cubic-bezier(0, 0.5, 0, 1) 150ms,transform .65s cubic-bezier(.23,1,.32,1) 150ms
+				transform: translate3d(0,-.6rem,.00005px) scale(1.222222222) rotate(.00001deg)
+			&:nth-child(4)
+				transition: opacity .5s cubic-bezier(0, 0.5, 0, 1) 200ms,transform .65s cubic-bezier(.23,1,.32,1) 200ms
+				transform: translate3d(0,-.8rem,.00005px) scale(1.222222222) rotate(.00001deg)
+			&:nth-child(5)
+				transition: opacity .5s cubic-bezier(0, 0.5, 0, 1) 250ms,transform .65s cubic-bezier(.23,1,.32,1) 250ms
+				transform: translate3d(0,-1rem,.00005px) scale(1.222222222) rotate(.00001deg)
+			a
+				font-weight: normal
+				font-size: 18px
+				line-height: 22px
+				font-family: 'Effra', sans-serif
+				color: #FFFFFF
+				display: inline-block
+				margin-bottom: 2px
+				&:only-child
+					padding: 5px 0
+					border-bottom: 1px solid rgba(255,255,255,.1)
+					font-size: 13px
+					line-height: 18px
+					font-family: 'Open Sans', sans-serif
+					margin-top: 12px
+			p
+				font-weight: normal
+				font-size: 13px
+				line-height: 18px
+				color: #777F8C
+		.social-list
+			margin-top: 70px
+			a
+				display: flex
+.nav-header
+	position: absolute
+	top: 36px
+	left: 30px
+	width: calc(100% - 60px)
+	display: flex
+	align-items: center
+	justify-content: space-between
+	.header-btn
+		border: 0!important
+		background: none
+		width: 30px
+		height: 30px
+		border-radius: 8px
+a:hover
+	text-decoration: none
+.main
+	background: linear-gradient(287.57deg, #0E122F 0%, #262D70 100%)
+	height: 100vh
+	min-height: 750px
+	display: flex
+	.section-wrapper
+		display: flex
+		margin-bottom: 42px
+		margin-top: 20vh
+		.h1, h1
+			margin-bottom: 8vh
+			position: relative
+			z-index: 2
+.section-wrapper
+	padding: 0 30px
+	margin: 0 auto
+	max-width: 1470px
+	width: 100%
+	position: relative
+.header-wrapper
+	display: flex
+	align-items: center
+	justify-content: space-between
+.header-logo
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 30px
+	height: 30px
+	border-radius: 9px
+	border: 1px solid #fff
+
+.header-menu
+	display: flex
+	align-items: center
+	justify-content: space-between
+	margin-right: 23px
+	li
+		margin: 0 20px
+		a
+			font-style: normal
+			font-weight: normal
+			font-size: 16px
+			line-height: 19px
+			color: #FFFFFF
+			font-family: 'Effra', sans-serif
+			position: relative
+			&::after
+				width: 0
+				content: ''
+				height: 1px
+				bottom: -5px
+				left: 0
+				background-color: #C167E0
+				display: block
+				transition: all .3s ease
+				position: absolute
+			&:hover
+				text-decoration: none
+				&::after
+					width: 100%
+
+.header-nav
+	display: flex
+	align-items: center
+	justify-content: space-between
+.header-lang
+	margin: 0 33px 0 0
+	display: flex
+	align-items: center
+	justify-content: center
+	position: relative
+	&:before
+		position: absolute
+		content: ''
+		top: 8px
+		left: 0
+		right: 0
+		margin: 0 auto
+		width: 14px
+		height: 1px
+		background-color: #fff
+		opacity: 0.3
+	a
+		display: block
+		font-weight: normal
+		font-size: 14px
+		line-height: 17px
+		color: #FFFFFF
+		font-family: 'Effra', sans-serif
+		opacity: 0.3
+		transition: all .3s ease
+		margin: 0 15px
+		&.active, &:hover
+			opacity: 1
+		&:first-child
+			float: left
+		&:last-child
+			float: right
+.header-btn
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 46px
+	height: 46px
+	background: rgba(255, 255, 255, 0.1)
+	border: 1px solid rgba(255, 255, 255, 0.1)
+	box-sizing: border-box
+	border-radius: 6px
+	cursor: pointer
+	overflow: hidden
+	position: relative
+	transition: all .3s ease
+	&:hover
+		background: rgba(255, 255, 255, 0.2)
+		border: 1px solid rgba(255, 255, 255, 0.1)
+.menu-btn
+	span
+		width: 20px
+		height: 1px
+		border-radius: 10px
+		background-color: #fff
+		display: block
+		margin: 5px 0
+		transition: all .3s ease
+.main-logos
+	display: flex
+	align-items: center
+	justify-content: flex-start
+	img
+		display: block
+		margin-right: 39px
+.main-footer
+	display: flex
+	align-items: center
+	justify-content: space-between
+	.social-list
+		margin-top: -15px
+.social-list
+	display: grid
+	grid-template-columns: 1fr 1fr 1fr 1fr
+	grid-column-gap: 15px
+	a
+		display: flex
+		align-items: center
+		justify-content: center
+		background: rgba(255, 255, 255, 0.1)
+		border: 1px solid rgba(255, 255, 255, 0.1)
+		box-sizing: border-box
+		width: 46px
+		height: 46px
+		border-radius: 50%
+		&:hover
+			background: rgba(255, 255, 255, 0.2)
+a
+	transition: all .3s ease
+.main-footer
+	margin-top: auto
+.main-wrapper
+	display: flex
+	flex-direction: column
+	height: auto
+	justify-content: space-between
+	width: 100%
+.main-slider.slick-slider
+	width: 290px
+	margin-bottom: 0
+*:focus
+	outline: none!important
+.slick-slider
+	margin-bottom: 0
+	.slick-dots
+		justify-content: flex-start
+		display: flex
+		align-items: center
+		position: relative
+		margin: 0
+		padding: 0
+		bottom: unset
+		margin-top: 10px
+		li
+			margin: 0
+			width: unset
+			height: unset
+			margin-right: 5px
+			&.slick-active
+				button
+					width: 15px
+					border-radius: 5px
+					background: #FFFFFF
+					opacity: 0.7
+			button
+				padding: 0
+				width: 8px
+				height: 8px
+				opacity: 0.3
+				border: 1px solid #FFFFFF
+				border-radius: 50%
+				transition: all .3s ease
+				&::before
+					display: none
+.main-slide
+	background: rgba(255, 255, 255, 0.1)
+	border: 1px solid rgba(255, 255, 255, 0.1)
+	box-sizing: border-box
+	border-radius: 6px
+	padding: 22px 25px 22px 22px
+	display: flex!important
+	align-items: center
+	justify-content: flex-start
+	&:hover
+		background: rgba(255, 255, 255, 0.2)
+.main-slide__image
+	position: relative
+	width: 66px
+	height: 55px
+	display: flex
+	flex-direction: row-reverse
+	margin-bottom: -25px
+	margin-right: 25px
+.main-slide__bg
+	box-shadow: 0px 0px 12px rgba(225, 84, 92, 0.5)
+	border-radius: 6px
+	width: 40px
+	height: 40px
+	min-width: 40px
+	margin-top: -14px
+.main-slide__content
+	margin-right: 5px
+.main-slide__arrow
+	margin-left: auto
+.main-slide__count
+	display: flex
+	align-items: center
+	justify-content: center
+	background: rgba(255, 255, 255, 0.15)
+	border: 1px solid rgba(255, 255, 255, 0.1)
+	box-sizing: border-box
+	backdrop-filter: blur(8px)
+	border-radius: 6px
+	font-weight: normal
+	font-size: 14px
+	line-height: 120%
+	text-align: center
+	color: #FFFFFF
+	font-family: 'Effra', sans-serif
+	width: 40px
+	min-width: 40px
+	height: 40px
+	margin-right: -14px
+.main-slide__title
+	font-weight: normal
+	font-size: 14px
+	line-height: 120%
+	font-family: 'Effra', sans-serif
+	color: #FFFFFF
+	margin-bottom: 5px
+.main-slide__description
+	font-weight: normal
+	font-size: 12px
+	line-height: 120%
+	color: #FFFFFF
+	opacity: 0.5
+	margin-bottom: 5px
+.main-slide__date
+	font-weight: normal
+	font-size: 12px
+	line-height: 120%
+	color: #FFFFFF
+	opacity: 0.5
+.strategy
+	padding: 160px 0 80px
+	background: #f5f5f7
+	.section-desctiption
+		max-width: 596px
+h2,.h2
+	font-weight: bold
+	font-size: 56px
+	line-height: 111%
+	color: $accent
+	margin-bottom: 25px
+.section-desctiption
+	font-style: normal
+	font-weight: bold
+	font-size: 18px
+	line-height: 140%
+	color: #333333
+	+ .section-desctiption
+		margin-top: 25px
+.section-link
+	font-weight: bold
+	font-size: 14px
+	line-height: 17px
+	text-align: right
+	letter-spacing: 0.03em
+	font-family: 'Effra', sans-serif
+	color: $accent!important
+	margin-top: 25px
+	display: inline-flex
+	align-items: center
+	&:hover
+		svg
+			margin-left: 18px
+	svg
+		margin-left: 13px
+		transition: all .3s ease
+.strategy-wrapper
+	display: flex
+	flex-direction: column
+.strategy-content
+	margin-right: -200px
+	position: relative
+	z-index: 2
+.strategy-image
+	width: 894px
+	max-width: 100%
+	height: 495px
+	position: relative
+	overflow: hidden
+	filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.06))
+	border-radius: 20px
+	margin-left: auto
+	margin-right: 0
+	margin-top: -144px
+	img
+		width: 100%
+		height: 100%
+		object-fit: cover
+.cases
+	padding: 80px 0 127px 0
+	background-color: #f5f5f7
+h3,.h3
+	font-weight: bold
+	font-size: 36px
+	line-height: 43px
+	font-family: 'Effra', sans-serif
+	color: #333333
+	margin-bottom: 20px
+	& + .section-link
+		margin-top: 0
+.cases-slider
+	margin-top: 36px
+	position: relative
+	.slick-dots
+		margin: 0 auto
+		margin-top: 25px
+		z-index: 22
+		position: relative
+		li button
+			border: 1px solid $accent
+		li.slick-active button
+			background: $accent
+.cases-slider__arrows-wrapper
+	display: flex
+	align-items: center
+	justify-content: flex-end
+	font-weight: bold
+	font-size: 14px
+	line-height: 17px
+	width: 300px
+	margin-left: auto
+	text-align: right
+	letter-spacing: 0.03em
+	font-family: 'Effra', sans-serif
+	color: #B4B4B4
+	margin-top: -40px
+	.prev-arrow
+		display: flex
+		align-items: center
+		margin-right: 30px
+		transition: all .3s ease
+		cursor: pointer
+		position: relative
+		z-index: 9
+		&.slick-disabled
+			opacity: 0
+		&:hover
+			img
+				margin-right: 18px
+		img
+			transform: rotate(-180deg)
+			margin-right: 13px
+			display: block
+			transition: all .3s ease
+	.next-arrow
+		display: flex
+		align-items: center
+		transition: all .3s ease
+		cursor: pointer
+		position: relative
+		z-index: 9
+		&.slick-disabled
+			opacity: 0
+		&:hover
+			img
+				margin-left: 18px
+				margin-right: 0
+		img
+			margin-left: 13px
+			margin-right: 5px
+			display: block
+			transition: all .3s ease
+section
+	position: relative
+	overflow: hidden
+.cases-slide
+	background: #FFFFFF
+	box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06)
+	border-radius: 20px
+	margin: 30px
+	position: relative
+	overflow: hidden
+	max-width: 1470px
+	padding: 30px 30px 30px 74px
+	display: flex!important
+	align-items: center
+	justify-content: space-between
+.case-info
+	display: flex
+	flex-wrap: wrap
+	justify-content: flex-end
+.case-info__item
+	padding: 25px
+	border: 1px solid rgba(0,0,0,.1)
+	border-radius: 6px
+	margin: 15px
+	width: 290px
+.case-info__title
+	font-weight: bold
+	font-size: 18px
+	line-height: 120%
+	font-family: 'Effra', sans-serif
+	color: #333333
+	margin-bottom: 20px
+.case-info__value
+	font-weight: 900
+	font-size: 42px
+	line-height: 120%
+	font-family: 'Effra', sans-serif
+	color: #333333
+	margin-bottom: 5px
+	span
+		font-weight: normal
+		font-size: 14px
+		line-height: 120%
+		color: #333333
+		font-family: 'Open Sans', sans-serif
+		display: inline-block
+		margin-left: 5px
+.case-info__graph
+	img
+		max-width: 100%
+.jsQuiz
+	cursor: pointer
+img
+	max-width: 100%
+.case-index
+	font-weight: 900
+	font-size: 100px
+	line-height: 100%
+	color: #000000
+	font-family: 'Effra', sans-serif
+	opacity: 0.03
+	margin-left: -16px
+	margin-bottom: 11px
+.case-logo
+	margin-top: -50px
+	margin-bottom: 28px
+	font-weight: normal
+	font-size: 16px
+	line-height: 24px
+	color: #333333
+.case-title
+	font-size: 42px
+	line-height: 51px
+	margin-bottom: 35px
+.case-description
+	margin-bottom: 27px
+	ul
+		display: inline-flex
+		align-items: center
+		li
+			font-weight: 600
+			font-size: 14px
+			line-height: 132%
+			color: #797979
+			height: 18px
+			&:not(:last-child)
+				padding-right: 11px
+				margin-right: 11px
+				border-right: 1px solid #797979
+.main-btn
+	height: 55px
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	padding: 0 27px
+	border: 1px solid $accent
+	box-sizing: border-box
+	border-radius: 82px
+	font-weight: bold
+	font-size: 14px
+	line-height: 17px
+	text-align: right
+	letter-spacing: 0.03em
+	font-family: 'Effra', sans-serif
+	color: $accent
+	&:hover
+		padding-right: 22px
+		svg
+			margin-left: 18px
+	svg
+		margin-left: 13px
+		transition: all .3s ease
+.new
+	padding: 120px 0 120px 0
+	.section-title
+		color: #5839F5
+	.section-description
+		max-width: 795px
+	.cases-slider__arrows-wrapper
+		margin-top: -43px
+.new-slider
+	position: relative
+	margin-top: 72px
+	margin-left: -30px
+	.slick-list
+		margin-left: -20px
+		padding-left: 20px
+	.slick-dots
+		margin: 0 auto
+		margin-top: -48px
+		padding-left: 30px
+		position: relative
+		z-index: 2
+		li button
+			border: 1px solid $accent
+		li.slick-active button
+			background: $accent
+	.case-title
+		font-size: 42px
+		line-height: 110%
+.section-description
+	font-weight: bold
+	font-size: 18px
+	line-height: 140%
+	color: #333333
+.new-slide
+	display: flex!important
+	align-items: center
+	justify-content: space-between
+	margin-left: 30px
+	margin-right: 30px
+	padding-bottom: 100px
+
+.case-bottom
+
+	display: flex
+	align-items: flex-start
+	margin-top: 60px
+.case-bottom__title
+	font-weight: 900
+	font-size: 18px
+	line-height: 120%
+	font-family: 'Effra', sans-serif
+	color: #333333
+	padding-bottom: 15px
+	margin-bottom: 15px
+	position: relative
+	&::after
+		content: ''
+		display: block
+		width: 70px
+		background: #333333
+		height: 1px
+		opacity: 0.2
+		position: absolute
+		bottom: 0
+.case-bottom__value
+	font-weight: normal
+	font-size: 14px
+	line-height: 120%
+	color: #333333
+.case-bottom__item
+	margin-right: 50px
+	white-space: nowrap
+.case-image web
+	margin-top: 19px
+	width: 50%
+	margin-right: -10px
+	img
+		width: 100%
+		height: 100%
+		object-fit: cover
+		filter: drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.06))
+.case-content
+	width: 50%
+.footer
+	background: #1E232B
+	padding: 100px 0 0
+.footer-bottom
+	padding: 38px 0
+	background: #161A20
+.footer-bottom__wrapper
+	display: flex
+	align-items: center
+	justify-content: space-between
+	font-weight: normal
+	font-size: 12px
+	line-height: 16px
+	color: #474F5B
+	a
+		font-weight: normal
+		font-size: 13px
+		line-height: 18px
+		color: #FFFFFF
+		opacity: 0.5
+		display: inline-block
+		padding: 5px 0
+		border-bottom: 1px solid rgba(255,255,255,.1)
+		&:hover
+			opacity: 1
+.footer-left
+	width: 48%
+	display: flex
+	align-items: center
+	justify-content: space-between
+.footer-wrapper
+	display: flex
+	align-items: flex-start
+	justify-content: flex-start
+	padding-bottom: 140px
+.footer-logo
+	display: block
+	margin-bottom: 50px
+	img:first-child
+		width: 36px
+		height: 36px
+		margin-right: 8px
+.footer-col
+	margin-right: 130px
+	&:last-child
+		margin-right: 0
+		margin-left: auto
+	.contacts-item
+		margin-bottom: 22px
+		margin-top: 6px
+		a
+			font-weight: normal
+			font-size: 18px
+			line-height: 22px
+			font-family: 'Effra', sans-serif
+			color: #FFFFFF
+			display: inline-block
+			margin-bottom: 2px
+			&:only-child
+				padding: 5px 0
+				border-bottom: 1px solid rgba(255,255,255,.1)
+				font-size: 13px
+				line-height: 18px
+				font-family: 'Open Sans', sans-serif
+				margin-top: 12px
+		p
+			font-weight: normal
+			font-size: 13px
+			line-height: 18px
+			color: #777F8C
+.footer-nav
+	margin-top: 5px
+.footer-menu
+	display: flex
+	align-items: center
+	margin-bottom: 55px
+	justify-content: flex-end
+	li a
+		font-weight: normal
+		font-size: 16px
+		line-height: 19px
+		color: #FFFFFF
+		font-family: 'Effra', sans-serif
+		margin-left: 40px
+		padding: 5px 0
+		border-bottom: 1px solid rgba(255,255,255,0)
+		&:hover
+			border-bottom: 1px solid rgba(255,255,255,1)
+.footer-tel
+	display: flex
+	a
+		padding: 13px 31px
+		border: 1px solid rgba(255, 255, 255, 0.15)
+		box-sizing: border-box
+		border-radius: 50px
+		font-weight: normal
+		font-size: 14px
+		line-height: 17px
+		color: #FFFFFF
+		font-family: 'Effra', sans-serif
+		margin-left: 20px
+		white-space: nowrap
+		&:hover
+			border: 1px solid rgba(255, 255, 255, 1)
+		svg
+			margin-right: 14px
+.quiz
+	position: fixed
+	top: 0
+	right: 0
+	height: 100vh
+	background: linear-gradient(287.57deg, #0E122F 0%, #262D70 100%)
+	box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06)
+	width: 510px
+	transition: all .3s ease
+	transform: translateX(100%)
+	z-index: -1
+	&[data-active-step="0"], &[data-active-step="4"], &[data-active-step="5"]
+		.quiz-footer
+			display: none
+	.quiz-bg
+		background: rgba(0, 0, 0, 0.6)
+		opacity: 0
+		border: 1px solid rgba(0, 0, 0, 0.1)
+		content: ''
+		display: block
+		position: fixed
+		width: 100vw
+		height: 100vh
+		right: 0
+		top: 0
+		transition: all .3s ease
+		transition-delay: .2s
+.quiz-header
+	display: flex
+	align-items: center
+	justify-content: flex-end
+	margin-right: -17px
+	margin-bottom: 65px
+	.quiz-btn
+		padding: 0!important
+		position: relative
+		border-radius: 7px
+		overflow: hidden
+		width: 30px
+		min-width: 30px
+		cursor: pointer
+		svg
+			transition: all .3s ease
+		&:hover svg
+			background: rgba(255, 255, 255, 0.2)
+.quiz-title
+	font-weight: bold
+	font-size: 42px
+	line-height: 110%
+	font-family: 'Effra', sans-serif
+	background: linear-gradient(95.61deg, #BDC2F2 16.98%, #C167E0 50.31%, #EEA6DA 83.65%)
+	-webkit-background-clip: text
+	-webkit-text-fill-color: transparent
+	margin-bottom: 20px
+.quiz-subtitle
+	font-weight: bold
+	font-size: 18px
+	line-height: 140%
+	color: #FFFFFF
+	margin-bottom: 30px
+.quiz-step
+	display: none
+	&.active
+		display: block
+.quiz-btn
+	min-width: 150px
+	color: #fff
+	border-color: #fff
+	padding: 0 33px!important
+	transition: all .3s ease
+	font-size: 14px
+	line-height: 17px
+	text-align: right
+	letter-spacing: 0.03em
+	background: none
+	justify-content: center
+	cursor: pointer
+	&.main-btn
+		background: linear-gradient(90deg, #305CD7 0%, #68BFF0 50%, transparent 50%)
+		background-size: 200% 100%
+		background-position: 100%
+		transition: background-position 275ms ease
+		overflow: hidden
+		svg
+			margin-left: 13px
+		&:hover
+			background-position: 0 100%
+			border: 0
+			border-color: linear-gradient(90deg, #305CD7 0%, #68BFF0 83.33%)
+	&.second-btn
+		background: rgba(255, 255, 255, 0.1)
+		border: 1px solid rgba(255, 255, 255, 0.1)
+		box-sizing: border-box
+		border-radius: 40px
+		width: 100%
+		height: 55px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		margin-bottom: 15px
+		&:hover
+			background: rgba(255, 255, 255, 0.2)
+.quiz-footer
+	margin-top: auto
+.form-group__input
+	width: 100%
+	background: #FFFFFF
+	border-radius: 6px
+	border: 0
+	font-size: 14px
+	line-height: 120%
+	font-family: 'Effra', sans-serif
+	color: #333333
+	opacity: 1
+	height: 55px
+	padding: 25px
+	margin-bottom: 15px
+	&::placeholder
+		font-weight: normal
+		font-size: 14px
+		line-height: 120%
+		font-family: 'Effra', sans-serif
+		color: #333333
+		opacity: 0.4
+.form-group + button
+	margin-top: 15px
+.quiz-image
+	margin-bottom: 20px
+	& + .quiz-subtitle
+		padding-right: 54px
+.quiz-wrapper
+	height: 100%
+	display: flex
+	flex-direction: column
+	position: relative
+	z-index: 2
+	padding: 25px 50px 62px
+	width: 100%
+	.slick-dots
+		justify-content: flex-start
+		display: flex
+		align-items: center
+		position: relative
+		margin: 0
+		padding: 0
+		bottom: unset
+		margin-top: 10px
+		li
+			margin: 0
+			width: unset
+			height: unset
+			margin-right: 5px
+			&.slick-active
+				button
+					width: 15px
+					border-radius: 5px
+					background: #FFFFFF
+					opacity: 0.7
+			button
+				padding: 0
+				width: 8px
+				height: 8px
+				opacity: 0.3
+				border: 1px solid #FFFFFF
+				border-radius: 50%
+				transition: all .3s ease
+				&::before
+					display: none
+.experience-slider
+	display: flex
+	max-width: 100%
+
+.mCSB_container
+	display: flex
+	align-items: center
+.experience-slide
+	margin: 0 40px
+	&:last-child
+		display: flex
+		&::after
+			content: ''
+			width: 40px
+			height: 1px
+			display: block
+	img
+		max-width: unset
+.main-about
+	.section-wrapper
+		margin-top: 0
+		align-items: center
+	h1, .h1
+		margin-bottom: 40px
+		margin-top: 60px
+	.main-btn
+		width: 213px
+		margin-top: 0
+		color: #fff!important
+		border-color: #fff
+		background: linear-gradient(90deg, #305CD7 0%, #68BFF0 50%, transparent 50%)
+		background-size: 200% 100%
+		background-position: 100%
+		transition: background-position 275ms ease
+		overflow: hidden
+		svg
+			margin-left: 13px
+			path
+				fill: #fff
+		&:hover
+			background-position: 0 100%
+			border: 0
+			border-color: linear-gradient(90deg, #305CD7 0%, #68BFF0 83.33%)
+.expert
+	background-color: #fff
+	padding: 160px 0
+	.section-title
+		font-size: 42px
+		line-height: 110%
+		margin-bottom: 60px
+		font-family: 'Effra', sans-serif
+.expert-partners__title
+	font-weight: 900
+	font-size: 24px
+	line-height: 130%
+	font-family: 'Effra', sans-serif
+	margin-bottom: 36px
+.expert-partners
+	display: flex
+	align-items: center
+	margin-bottom: 60px
+	&:last-child
+		margin-bottom: 0
+		.expert-partners__item
+			margin-right: 50px
+.expert-partners__item
+	margin-right: 40px
+.experience
+	padding: 158px 0 154px
+	background-color: #F5F5F7
+	.section-title
+		font-size: 42px
+		line-height: 110%
+		margin-bottom: 50px
+		font-family: 'Effra', sans-serif
+.experience-wrapper
+	display: flex
+	align-items: center
+	justify-content: space-between
+	margin-bottom: 70px
+.experience-item
+	width: calc(100% / 3 - 22px)
+	min-width: 260px
+	padding: 82px 53px 29px 43px
+	height: 310px
+	background: #FFFFFF
+	box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06)
+	border-radius: 20px
+.experience-item__index
+	position: relative
+	font-weight: 900
+	font-size: 24px
+	line-height: 160%
+	font-family: 'Effra', sans-serif
+	color: #2F82F8
+	width: 70px
+	padding-bottom: 20px
+	margin-bottom: 20px
+	border-bottom: 1px solid rgba(0,0,0,.2)
+	span
+		display: flex
+		align-items: center
+		justify-content: center
+		font-weight: 900
+		font-size: 100px
+		line-height: 100%
+		color: #000000
+		opacity: 0.03
+		position: absolute
+		bottom: 16px
+		left: -17px
+.experience-item__content
+	font-weight: normal
+	font-size: 18px
+	line-height: 120%
+	color: #000000
+	span
+		display: block
+		font-weight: bold
+		font-size: 20px
+		line-height: 120%
+.mCSB_scrollTools.mCSB_scrollTools_horizontal
+	width: 100%
+	max-width: 690px
+	margin: 0 auto
+	margin-top: 40px
+.mCSB_scrollTools .mCSB_draggerRail
+	background-color: rgba(0,0,0,.1)!important
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar
+	background: linear-gradient(#C167E0 0%,#EEA6DA 100%)
+	height: 2px!important
+	border-radius: 0
+	margin: 7px auto!important
+	opacity: 1
+	box-shadow: none
+.mCSB_horizontal.mCSB_inside > .mCSB_container
+	margin-bottom: 56px
+.technology
+	background: radial-gradient(50% 123.46% at 50% 50%, #262D70 0%, #0E122F 100%)
+	padding: 160px 0 153px 0
+	.section-title
+		font-size: 42px
+		line-height: 110%
+		margin-bottom: 77px
+		font-family: 'Effra', sans-serif
+		text-align: center
+		color: #fff
+.technology-wrapper
+	display: flex
+	align-items: flex-start
+.technology-col
+	width: 50%
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: flex-start
+	&:first-child
+		border-right: 1px solid rgba(255,255,255,.2)
+.technology-subtitle
+	font-weight: bold
+	font-size: 18px
+	line-height: 140%
+	text-align: center
+	color: #FFFFFF
+	margin-bottom: 7px
+.technology-description
+	font-weight: normal
+	font-size: 14px
+	line-height: 120%
+	text-align: center
+	color: #FFFFFF
+	margin-bottom: 60px
+	max-width: 400px
+.directions
+	background: #F5F5F7
+	padding: 162px 0 50px
+	.section-title
+		font-size: 42px
+		line-height: 110%
+		margin-bottom: 49px
+		font-family: 'Effra', sans-serif
+.directions-wrapper
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+.directions-item
+	background: #FFFFFF
+	box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06)
+	border-radius: 10px
+	width: calc(25% - (30px * 3 / 4))
+	margin-bottom: 30px
+	padding: 26px
+	min-height: 210px
+.directions-title
+	font-weight: 900
+	font-size: 24px
+	line-height: 160%
+	font-family: 'Effra', sans-serif
+	color: #333333
+	padding-bottom: 20px
+	margin-bottom: 20px
+	position: relative
+	&::after
+		position: absolute
+		bottom: 0
+		width: 70px
+		height: 1px
+		display: block
+		left: 0
+		content: ''
+		background-color: rgba(0,0,0,.2)
+.directions-content
+	font-weight: normal
+	font-size: 18px
+	line-height: 120%
+	color: #333333
+.development
+	padding-top: 80px
+	padding-bottom: 92px
+	background: #F5F5F7
+	.section-title
+		font-size: 42px
+		line-height: 110%
+		margin-bottom: 49px
+		font-family: 'Effra', sans-serif
+		color: #479B4E
+.development-item
+	display: flex
+	align-items: center
+	justify-content: space-between
+	height: 600px
+	background: #FFFFFF
+	box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06)
+	border-radius: 20px
+	margin-bottom: 70px
+	padding: 40px 60px 40px 40px
+.development-image
+	width: 55%
+	height: 100%
+	img
+		max-height: 100%
+		max-width: 100%
+.development-content
+	width: 45%
+	max-width: 450px
+.development-subtitle
+	font-weight: bold
+	font-size: 18px
+	line-height: 140%
+	color: #333333
+	margin-bottom: 40px
+.development-title
+	font-weight: bold
+	font-size: 42px
+	line-height: 110%
+	color: #333333
+	margin-bottom: 20px
+.development-description
+	font-weight: normal
+	font-size: 18px
+	line-height: 120%
+	color: #333333
+	margin-bottom: 30px
+.team
+	padding: 160px 0 120px
+	background-size: cover
+	background-repeat: no-repeat
+.team-wrapper
+	display: flex
+	align-items: flex-start
+	justify-content: space-between
+	.section-title
+		font-size: 42px
+		line-height: 110%
+		margin-bottom: 51px
+		font-family: 'Effra', sans-serif
+		color: #fff
+.team-col__wrapper
+	display: flex
+	align-items: flex-start
+.team-col
+	width: 56%
+	&:first-child
+		margin-top: 30px
+	&:last-child
+		width: 44%
+.team-col__inner-title
+	display: flex
+	align-items: flex-end
+	font-weight: 900
+	font-size: 120px
+	line-height: 100%
+	color: #FFFFFF
+	font-family: 'Effra', sans-serif
+	span
+		display: block
+		margin-left: 4px
+		font-weight: 900
+		font-size: 24px
+		line-height: 160%
+		color: #FFFFFF
+		opacity: 0.5
+		margin-bottom: 10px
+.team-col__inner-subtitle
+	font-weight: 900
+	font-size: 24px
+	line-height: 160%
+	color: #FFFFFF
+	font-family: 'Effra', sans-serif
+	margin-bottom: 19px
+.team-col__inner
+	padding-right: 125px
+	ul
+		li
+			font-weight: normal
+			font-size: 16px
+			line-height: 24px
+			color: #FFFFFF
+			margin-bottom: 16px
+			span
+				font-weight: bold
+				font-size: 18px
+				line-height: 140%
+				color: #FFFFFF
+				margin-right: 5px
+.team-col__info
+	display: flex
+	align-items: flex-start
+	justify-content: space-between
+	flex-wrap: wrap
+.team-col__box
+	width: calc(50% - 20px)
+	margin-bottom: 40px
+	padding: 51px 30px 0
+	height: 220px
+	background: rgba(255, 255, 255, 0.1)
+	border: 1px solid rgba(255, 255, 255, 0.15)
+	backdrop-filter: blur(30px)
+	border-radius: 6px
+.team-col__box-value
+	font-size: 72px
+	line-height: 100%
+	display: flex
+	align-items: flex-end
+	color: #FFFFFF
+	font-family: 'Effra', sans-serif
+	padding-bottom: 15px
+	margin-bottom: 15px
+	position: relative
+	&:after
+		position: absolute
+		bottom: 0
+		width: 70px
+		height: 1px
+		display: block
+		left: 0
+		content: ''
+		background-color: rgba(255,255,255,.2)
+.team-col__box-title
+	font-weight: normal
+	font-size: 14px
+	line-height: 120%
+	color: #FFFFFF
+.history
+	background: linear-gradient(287.57deg, #0E122F 0%, #262D70 100%)
+	padding: 160px 0 154px
+	.mCSB_scrollTools .mCSB_draggerRail
+		background: rgba(255,255,255,.1)!important
+	.section-title
+		font-size: 42px
+		line-height: 110%
+		margin-bottom: 20px
+		font-family: 'Effra', sans-serif
+		color: #fff
+	.section-subtitle
+		font-weight: bold
+		font-size: 18px
+		line-height: 140%
+		color: #FFFFFF
+		margin-bottom: 50px
+.history-wrapper
+	display: flex
+	max-width: 100%
+	.mCSB_container
+		align-items: flex-start
+	.mCustomScrollBox
+		overflow: visible
+	.mCSB_horizontal.mCSB_inside>.mCSB_container
+		overflow: visible
+.history-item
+	height: auto
+	margin: 0 52px
+	&:first-child
+		margin-left: -15px
+.history-year
+	font-style: normal
+	font-weight: 900
+	font-size: 100px
+	line-height: 160%
+	color: rgba(255,255,255,.03)
+	position: relative
+	margin-bottom: 8px
+	&:after
+		position: absolute
+		bottom: 14px
+		width: 70px
+		height: 1px
+		display: block
+		left: 15px
+		content: ''
+		background-color: rgba(255,255,255,.2)
+	span
+		position: absolute
+		font-weight: 900
+		font-size: 24px
+		line-height: 160%
+		color: #FFFFFF
+		bottom: 34px
+		left: 15px
+.history-descripton
+	font-weight: normal
+	font-size: 18px
+	line-height: 120%
+	color: #FFFFFF
+	margin-left: 15px
+	white-space: nowrap
+.price
+	padding: 160px 0 130px 0
+	background: #F5F5F7
+	.section-title
+		font-size: 42px
+		line-height: 110%
+		margin-bottom: 50px
+		font-family: 'Effra', sans-serif
+	.price-wrapper
+		display: flex
+		align-items: flex-start
+		justify-content: flex-start
+		flex-wrap: wrap
+		margin-left: calc((-30px * 3 / 4)/2)
+		margin-right: calc((-30px * 3 / 4)/2)
+.price-item
+	padding: 70px 25px
+	background: #FFFFFF
+	box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06)
+	border-radius: 10px
+	width: calc(100% / 4 - (30px * 3 / 4))
+	margin-right: calc((30px * 3 / 4)/2)
+	margin-left: calc((30px * 3 / 4)/2)
+	height: 470px
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: space-between
+	margin-bottom: 30px
+	display: none
+	&.active
+		display: flex
+	.main-btn
+		transition: all 0s ease!important
+	&:hover
+		background: linear-gradient(153.76deg, #656EB8 0%, #333A6D 100%)
+		& > *
+			color: #fff!important
+			svg
+				path
+					fill: #fff
+			span
+				color: #fff!important
+		.main-btn
+			border-color: #fff
+			background: linear-gradient(90deg, #305CD7 0%, #68BFF0 50%, transparent 50%)
+			background-size: 200% 100%
+			background-position: 100%
+			transition: background-position 275ms ease
+			overflow: hidden
+
+			svg
+				margin-left: 13px
+			&:hover
+				background-position: 0 100%
+				height: 55px
+				width: 152px
+				border: 0
+				transition: all .3s ease!important
+		.price-title
+			&:after
+				background-color: rgba(255,255,255,.2)
+.price-title
+	font-weight: 900
+	font-size: 24px
+	line-height: 160%
+	text-align: center
+	color: #333333
+	font-family: 'Effra', sans-serif
+	position: relative
+	padding-bottom: 20px
+	margin-bottom: 20px
+	&:after
+		position: absolute
+		bottom: 0
+		width: 70px
+		height: 1px
+		display: block
+		left: 50%
+		transform: translateX(-50%)
+		content: ''
+		background-color: rgba(0,0,0,.2)
+.price-tech
+	margin-bottom: auto
+	margin-top: 0
+	font-weight: normal
+	font-size: 18px
+	line-height: 160%
+	color: #333333
+.price-value
+	font-weight: 900
+	font-size: 42px
+	line-height: 160%
+	font-family: 'Effra', sans-serif
+	color: #333333
+	margin-bottom: 30px
+	span
+		font-weight: normal
+		font-size: 18px
+		line-height: 160%
+		color: #333333
+		font-family: 'Open Sans', sans-serif
+.main-cases
+	height: 360px
+	h1,.h1
+		margin-bottom: 50px
+		font-weight: bold
+		font-size: 56px
+		line-height: 110%
+		font-family: 'Open Sans', sans-serif
+	.section-wrapper
+		margin-top: 0
+		justify-content: flex-end
+		align-items: flex-end
+.main-filter
+	display: flex
+	margin-bottom: 16px
+.main-filter__item
+	cursor: pointer
+	font-weight: bold
+	font-size: 18px
+	line-height: 120%
+	color: #FFFFFF
+	opacity: 0.4
+	padding: 7px 0
+	border-bottom: 1px solid transparent
+	margin-right: 40px
+	&.active
+		border-bottom: 1px solid #fff
+		opacity: 1
+.jqFilter
+	cursor: pointer
+.case
+	display: none
+	padding: 80px 0 0 0
+	background-color: #f5f5f7
+	.section-wrapper
+		padding-bottom: 100px
+		border-bottom: 1px solid rgba(0,0,0,.1)
+	&.active
+		display: block
+	.section-title
+		font-size: 42px
+		line-height: 110%
+		margin-bottom: 50px
+		font-family: 'Effra', sans-serif
+		margin-bottom: 15px
+.section-header
+	display: flex
+	align-items: flex-end
+	justify-content: space-between
+	padding-right: 115px
+.section-tag
+	font-weight: bold
+	font-size: 18px
+	line-height: 140%
+	text-align: right
+	text-decoration-line: underline
+	color: #ABABAB
+	transition: all .3s ease
+	margin-bottom: 15px
+	&:hover
+		color: $accent
+.main-page + .case
+	padding-top: 120px
+.case-wrapper
+	display: flex
+	flex-wrap: wrap
+	&.price-wrapper
+		.case-content
+			justify-content: flex-start
+		.price-description
+			margin-bottom: 45px
+			ul
+				li
+					display: flex
+					align-items: flex-start
+					font-size: 18px
+					line-height: 195%
+					&::before
+						width: 8px
+						height: 8px
+						border-radius: 50%
+						content: ''
+						display: block
+						margin-right: 15px
+						background-color: $accent
+						margin-top: 12px
+			.main-btn
+				border: 0
+				background: linear-gradient(90deg, #305CD7 0%, #68BFF0 83.33%)
+				border-radius: 82px
+				color: #fff!important
+				svg
+					path
+						fill: #fff
+	.case-image
+		max-width: calc(100% - 500px - 73px)
+		margin-top: 13px
+		img
+			width: 100%
+	.case-content
+		width: 500px
+		padding-bottom: 48px
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		margin-right: 73px
+		.case-subtitle
+			font-weight: bold
+			font-size: 24px
+			line-height: 140%
+			color: #2F82F8
+			margin-bottom: 10px
+		.case-descr
+			font-style: normal
+			font-weight: bold
+			font-size: 18px
+			line-height: 140%
+			color: #333333
+			margin-bottom: 30px
+		.case-info
+			justify-content: flex-start
+			font-weight: bold
+			font-size: 18px
+			line-height: 140%
+			color: #333333
+			margin-bottom: 30px
+		.case-dev
+			margin-top: 0
+			margin-bottom: auto
+			span
+				font-weight: normal
+				font-size: 14px
+				line-height: 120%
+				color: #333333
+				margin-bottom: 15px
+				display: block
+			ul
+				display: flex
+				flex-wrap: wrap
+				li
+					margin-right: 20px
+					margin-bottom: 20px
+.main-description
+	color: #fff
+	font-weight: normal
+	font-size: 24px
+	line-height: 140%
+	margin-bottom: 50px
+	max-width: 600px
+.main-price
+	height: 516px
+	.section-wrapper
+		margin-top: 0
+		.main-wrapper
+			justify-content: flex-end
+			h1,.h1
+				margin-bottom: 30px
+.price-header
+	display: flex
+	align-items: center
+	justify-content: space-between
+	padding-bottom: 50px
+	border-bottom: 1px solid rgba(0,0,0,.1)
+	margin-bottom: 30px
+.price-in-hour
+	margin-bottom: 2px
+	span
+		&:first-child
+			font-weight: bold
+			font-size: 42px
+			line-height: 110%
+			text-align: right
+			font-family: 'Effra', sans-serif
+			color: #333333
+			display: inline-block
+		&:last-child
+			display: inline-block
+			font-weight: 900
+			font-size: 14px
+			line-height: 120%
+			font-family: 'Effra', sans-serif
+			color: #333333
+.price-in-month
+	opacity: 0.3
+	span
+		&:first-child
+			font-size: 24px
+			line-height: 110%
+			text-align: right
+			font-family: 'Effra', sans-serif
+			color: #333333
+			display: inline-block
+		&:last-child
+			display: inline-block
+			font-size: 14px
+			line-height: 120%
+			font-family: 'Effra', sans-serif
+			color: #333333
+.full-image
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background: rgba(0,0,0,.3	)
+	border: 1px solid rgba(255, 255, 255, 0.1)
+	box-sizing: border-box
+	padding: 65px 95px
+	display: flex
+	align-items: center
+	justify-content: center
+	opacity: 0
+	z-index: -1
+	transition: all .3s ease
+	&.active
+		opacity: 1
+		z-index: 99999
+	img
+		box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06)
+		border-radius: 20px
+		overflow: hidden
+		max-height: 100%
+		max-width: 100%
+		width: auto
+.change-orientation
+	display: none
+.close-image
+	position: absolute
+	border: 1px solid #FFFFFF
+	box-sizing: border-box
+	border-radius: 7px
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 30px
+	height: 30px
+	right: 33px
+	top: 33px
+	transition: all .3s ease
+	&:hover
+		background-color: rgba(255,255,255,.1)
+.small-image
+	position: relative
+	display: flex
+	align-items: center
+	justify-content: center
+	background: #F1F5F8
+	border-radius: 20px
+	overflow: hidden
+	.open-image
+		background: rgba(47, 130, 248, 0.3)
+		border: 1px solid #FFFFFF
+		backdrop-filter: blur(10px)
+		border-radius: 50%
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 70px
+		height: 70px
+		min-width: 70px
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		transition: all .3s ease
+		&:hover
+			background: rgba(47, 130, 248, 0.6)
+.jsImage
+	cursor: pointer
+.main-case
+	height: 430px
+	.section-wrapper
+		margin-top: 0
+		margin-bottom: 0
+	h1,.h1
+		font-size: 56px
+		line-height: 110%
+		font-family: 'Open Sans', sans-serif
+		margin-bottom: 83px
+	.main-wrapper
+		justify-content: flex-end
+.case-inner
+	padding: 90px 0
+	overflow: unset
+	background-color: #f5f5f7
+	&:nth-of-type(2)
+		.case-image
+			position: relative
+			overflow: visible
+			&::after
+				background-image: url(../img/arrow1.png)
+				content: ''
+				display: block
+				position: absolute
+				bottom: -160px
+				left: 50%
+				transform: translateX(-50%)
+				width: 40px
+				height: 130px
+				background-size: contain
+				background-repeat: no-repeat
+	&:nth-of-type(3)
+		&::after
+			background-image: url(../img/arrow2.png)
+			content: ''
+			display: block
+			position: absolute
+			top: 50%
+			left: 45%
+			transform: translateX(-50%)
+			width: 680px
+			height: 480px
+			background-size: contain
+			background-repeat: no-repeat
+		.case-image
+			position: relative
+			overflow: visible
+			z-index: 2
+	&:nth-of-type(4)
+		&::after
+			background-image: url(../img/arrow3.png)
+			content: ''
+			display: block
+			position: absolute
+			top: 50%
+			left: 35%
+			transform: translateX(-50%)
+			width: 445px
+			height: 606px
+			background-size: contain
+			background-repeat: no-repeat
+		.case-image
+			position: relative
+			overflow: visible
+			z-index: 2
+	.case-wrapper
+		display: flex
+		align-items: center
+	.case-content
+		position: sticky
+		top: 40%
+		height: 100%
+	.case-image
+		border-radius: 10px
+		overflow: hidden
+		background: #fff
+		box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06)
+.case-footer
+	background: #f5f5f7
+	padding-bottom: 60px
+.case-bottom__wrapper
+	display: flex
+	justify-content: space-between
+
+	.case-image
+		width: calc(100% / 3 * 2 - 15px)
+		margin-top: 0
+		background: #FFFFFF
+		border-radius: 20px
+		padding: 43px 46px
+		padding-bottom: 0
+		position: relative
+		overflow: hidden
+		img
+			margin-left: -46px
+	.case-content
+		width: calc(100% / 3 * 1 - 15px)
+		background: linear-gradient(172.51deg, #F5ABBF 0%, #C89AEB 99.77%)
+		border-radius: 20px
+		padding: 43px 46px
+		.case-content__title
+			font-weight: bold
+			font-size: 18px
+			line-height: 140%
+			color: #FFFFFF
+			margin-bottom: auto
+		.case-content__text
+			font-weight: bold
+			font-size: 42px
+			line-height: 110%
+			color: #FFFFFF
+			font-family: 'Effra', sans-serif
+			margin-top: auto
+			margin-bottom: auto
+.case-image__title
+	font-weight: bold
+	font-size: 18px
+	line-height: 140%
+	margin-bottom: 30px
+	color: $accent
+.case-image__subtitle
+	font-weight: bold
+	font-size: 18px
+	line-height: 140%
+	color: #333333
+	margin-bottom: 40px
+.video
+	padding-top: 60px
+	padding-bottom: 120px
+	background: #f5f5f7
+.video-wrapper
+	border-radius: 10px
+	position: relative
+	overflow: hidden
+	.video-content
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: rgba(0, 0, 0, 0.5)
+		display: flex
+		align-items: center
+		justify-content: space-between
+		flex-direction: column
+	.video-link
+		background: rgba(255, 255, 255, 0.25)
+		border: 1px solid #FFFFFF
+		box-shadow: inset 0px 0px 12px rgba(255, 255, 255, 0.3)
+		backdrop-filter: blur(60px)
+		border-radius: 50%
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 120px
+		height: 120px
+		transition: all .3s ease
+		cursor: pointer
+		&:hover
+			background: rgba(255, 255, 255, .5)
+		img
+			margin-left: 15px
+	.video-video
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		z-index: 2
+		display: none
+		&.active
+			display: block
+		iframe
+			width: 100%
+			height: 100%
+.cta
+	background: radial-gradient(50% 177.78% at 50% 50%, #262D70 0%, #0E122F 100%)
+	padding: 189px 0
+.cta-wrapper
+	text-align: center
+	.section-subtitle
+		font-weight: normal
+		font-size: 14px
+		line-height: 120%
+		text-align: center
+		color: #FFFFFF
+		margin-bottom: 40px
+	.h2, h2
+		color: #fff
+		margin-bottom: 30px
+	.section-description
+		max-width: 600px
+		margin: 0 auto
+		color: #fff
+	.section-link
+		margin-top: 30px
+.video-footer
+	display: flex
+	align-items: center
+	justify-content: space-between
+	margin-bottom: 52px
+	width: 100%
+	padding: 0 66px
+	span:first-child
+		font-weight: bold
+		font-size: 18px
+		line-height: 140%
+		display: flex
+		align-items: flex-end
+		color: #FFFFFF
+	span:last-child
+		font-weight: normal
+		font-size: 14px
+		line-height: 17px
+		text-align: right
+		color: #FFFFFF
+@import media
